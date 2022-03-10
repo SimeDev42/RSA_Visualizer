@@ -18,6 +18,14 @@ class Person{
     }
 
     receiveData(){
-        
+
+    }
+
+    calculateKeys(x, y, n){
+        console.log(n);
+        let totient = (x-1)*(y-1);
+        console.log(totient);
+        let e = get_coprimes(n, totient);
+        console.log(e);
     }
 }
