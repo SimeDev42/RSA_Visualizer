@@ -6,7 +6,18 @@ class Person{
         this.y = y;
     }
 
+    privateKey = 0;
+    publicKey = 0;
+
     show(){
         image(this.icon, this.x, this.y, 200, 200);
+    }
+
+    sendData(){
+
+    }
+
+    receiveData(){
+        
     }
 }
