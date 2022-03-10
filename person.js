@@ -6,8 +6,8 @@ class Person{
         this.y = y;
     }
 
-    privateKey = 0;
-    publicKey = 0;
+    privateKey = [];
+    publicKey = [];
 
     show(){
         image(this.icon, this.x, this.y, 200, 200);
@@ -22,10 +22,24 @@ class Person{
     }
 
     calculateKeys(x, y, n){
-        console.log(n);
         let totient = (x-1)*(y-1);
-        console.log(totient);
         let e = get_coprimes(n, totient);
-        console.log(e);
+        if (e.length > 1){
+            e = e[1];
+        }
+        else{
+            e = e[0];
+        }
+
+        let k = get_k(totient, e);
+
+        let d = int((k*totient+1)/e);
+
+        this.privateKey = [];
+        this.publicKey = [];
+        this.privateKey.push(d);
+        this.privateKey.push(n);
+        this.publicKey.push(n);
+        this.publicKey.push(e);
     }
 }
